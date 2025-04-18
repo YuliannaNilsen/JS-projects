@@ -1,0 +1,82 @@
+/* Основні стилі */
+body {
+    font-family: "Roboto Mono", monospace;
+    background-color: #c0d7de;
+    margin: 0;
+    padding: 20px;
+    color: #003049;
+}
+
+h1, h2 {
+    color: #2b506e;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #afd7fa;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #003049;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a0d1f8;
+}
+
+/* Layouts */
+.user-container, .posts-container, .comments-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.user-card, .post-card, .comment-card {
+    background-color: #ddf8f9;
+    border: 1px solid #cce5f4;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.user-card {
+    width: 45%;
+}
+
+.post-card {
+    width: 18%;
+}
+
+.comment-card {
+    width: 23%;
+}
+
+/* Деталі юзера і поста */
+.user-info, .post-info {
+    padding: 20px;
+    background-color: #d1edfa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Кнопка для постів */
+.posts-button {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 90%;
+}
+
+/* Кнопка назад */
+.back-button {
+    display: block;
+    margin: 20px auto;
+    width: fit-content;
+    font-size: 14px;
+}

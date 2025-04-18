@@ -4,38 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>User Details</title>
-  <style>
-    .user-info {
-      padding: 20px;
-      background-color: #afedf3;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .posts-button {
-      display: block;
-      margin: 0 auto 20px auto;
-      width: 90%;
-      padding: 10px;
-      font-size: 16px;
-    }
-    .posts-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .post-card {
-      width: 18%;
-      padding: 10px;
-      background-color: #b1afab;
-      border-radius: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
 <h1>User Details</h1>
 <div id="user" class="user-info"></div>
 <button id="load-posts" class="posts-button">Posts of current user</button>
 <div id="posts" class="posts-container"></div>
+<a href="index.html" class="back-button"><button>⬅ Back to Users</button></a>
 
 <script>
   const params = new URLSearchParams(window.location.search);
