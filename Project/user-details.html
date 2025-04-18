@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Details</title>
+  <style>
+    .user-info {
+      padding: 20px;
+      background-color: #afedf3;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .posts-button {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 90%;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .posts-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .post-card {
+      width: 18%;
+      padding: 10px;
+      background-color: #b1afab;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+<h1>User Details</h1>
+<div id="user" class="user-info"></div>
+<button id="load-posts" class="posts-button">Posts of current user</button>
+<div id="posts" class="posts-container"></div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const userId = params.get('userId');
+
+  fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+          .then(res => res.json())
+          .then(user => {
+            const div = document.getElementById('user');
+            for (let key in user) {
+              const p = document.createElement('p');
+              p.innerHTML = `<strong>${key}:</strong> ${JSON.stringify(user[key])}`;
+              div.appendChild(p);
+            }
+          });
+
+  document.getElementById('load-posts').onclick = () => {
+    fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+            .then(res => res.json())
+            .then(posts => {
+              const container = document.getElementById('posts');
+              container.innerHTML = '';
+              posts.forEach(post => {
+                const div = document.createElement('div');
+                div.className = 'post-card';
+                div.innerHTML = `
+              <p><strong>Title:</strong> ${post.title}</p>
+              <a href="post-details.html?postId=${post.id}">
+                <button>View Post</button>
+              </a>
+            `;
+                container.appendChild(div);
+              });
+            });
+  };
+</script>
+</body>
+</html>
